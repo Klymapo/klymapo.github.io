@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mario Martínez Horta · Klymapo</title>
+<meta name="description" content="Portafolio de Mario Martínez Horta (Klymapo). Análisis de datos, apps y videojuegos; narrativa como Atátoriz.">
+<meta name="theme-color" content="#111214">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700;800&family=Geist+Mono:wght@400;500&family=Special+Elite&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen="title" data-mode="">
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+<div class="grain" aria-hidden="true"></div>
+
+<main id="main">
+
+  <!-- PANTALLA DE TÍTULO -->
+  <section class="screen screen-title" id="screen-title" aria-labelledby="title-name">
+    <p class="brand mono">KLYMAPO</p>
+    <div class="title-block">
+      <h1 id="title-name">Mario Martínez Horta</h1>
+      <p class="title-sub" data-i18n="tagline">Datos de día. Historias de noche.</p>
+    </div>
+    <button class="press-start" id="press-start" type="button">
+      <span data-i18n="press">Presiona Start</span>
+      <span class="press-hint mono" data-i18n="pressHint">Enter o toca</span>
+    </button>
+    <nav class="main-menu" id="main-menu" aria-label="Menú principal" hidden>
+      <ul role="list">
+        <li><a class="menu-item" href="#modo" data-i18n="mNew">Elegir modo</a></li>
+        <li><a class="menu-item" href="#creditos" data-i18n="mCredits">Créditos</a></li>
+        <li><a class="menu-item" href="#contacto" data-i18n="mContact">Contacto</a></li>
+        <li><a class="menu-item" href="#opciones" data-i18n="mOptions">Opciones</a></li>
+      </ul>
+    </nav>
+    <p class="controls mono" aria-hidden="true" data-i18n="controls">↑ ↓ mover · Enter elegir · Esc volver</p>
+  </section>
+
+  <!-- ELECCIÓN DE MODO -->
+  <section class="screen screen-select" id="screen-select" aria-labelledby="select-h" hidden>
+    <header class="bar">
+      <a class="back mono" href="#menu" data-i18n="back">← Menú</a>
+      <h2 id="select-h" class="bar-title" data-i18n="selectTitle">Elige tu modo</h2>
+    </header>
+    <div class="modes">
+      <a class="mode-card mode-a menu-item" href="#analista">
+        <span class="mode-kicker mono">Mario</span>
+        <span class="mode-name" data-i18n="modeA">Modo Analista</span>
+        <span class="mode-desc" data-i18n="modeADesc">Datos, BI, apps y videojuegos. El lado que construye.</span>
+        <span class="mode-count mono" data-count="a"></span>
+      </a>
+      <a class="mode-card mode-n menu-item" href="#narrador">
+        <span class="mode-kicker mono">Atátoriz</span>
+        <span class="mode-name" data-i18n="modeN">Modo Narrador</span>
+        <span class="mode-desc" data-i18n="modeNDesc">Novela negra, ciencia ficción y diseño narrativo. El lado que cuenta.</span>
+        <span class="mode-count mono" data-count="n"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PARTIDAS GUARDADAS -->
+  <section class="screen screen-saves" id="screen-saves" aria-labelledby="saves-h" hidden>
+    <header class="bar">
+      <a class="back mono" href="#modo" data-i18n="backModes">← Modos</a>
+      <h2 id="saves-h" class="bar-title" data-i18n="saves">Partidas guardadas</h2>
+      <a class="switch mono" id="mode-switch" href="#narrador"></a>
+    </header>
+    <ol class="slots" id="slots" role="list"></ol>
+  </section>
+
+  <!-- CRÉDITOS -->
+  <section class="screen screen-credits" id="screen-credits" aria-labelledby="credits-h" hidden>
+    <header class="bar">
+      <a class="back mono" href="#menu" data-i18n="back">← Menú</a>
+      <h2 id="credits-h" class="bar-title" data-i18n="mCredits">Créditos</h2>
+    </header>
+    <div class="credits" id="credits"></div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="screen screen-contact" id="screen-contact" aria-labelledby="contact-h" hidden>
+    <header class="bar">
+      <a class="back mono" href="#menu" data-i18n="back">← Menú</a>
+      <h2 id="contact-h" class="bar-title" data-i18n="mContact">Contacto</h2>
+    </header>
+    <div class="contact">
+      <p class="contact-lead" data-i18n="contactLead">¿Un proyecto de datos, una app o una historia? Escríbeme.</p>
+      <ul class="contact-list" role="list">
+        <li><a class="menu-item" href="mailto:mariomtzhrt@gmail.com"><span class="mono" data-i18n="email">Correo</span>mariomtzhrt@gmail.com</a></li>
+        <li><a class="menu-item" href="https://www.linkedin.com/in/mariomh7602" target="_blank" rel="noopener"><span class="mono">LinkedIn</span>in/mariomh7602</a></li>
+        <li><a class="menu-item" href="https://github.com/Klymapo" target="_blank" rel="noopener"><span class="mono">GitHub</span>Klymapo</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- OPCIONES -->
+  <section class="screen screen-options" id="screen-options" aria-labelledby="options-h" hidden>
+    <header class="bar">
+      <a class="back mono" href="#menu" data-i18n="back">← Menú</a>
+      <h2 id="options-h" class="bar-title" data-i18n="mOptions">Opciones</h2>
+    </header>
+    <div class="options">
+      <fieldset class="opt">
+        <legend data-i18n="optLang">Idioma</legend>
+        <div class="seg">
+          <button type="button" class="menu-item" data-lang="es" aria-pressed="true">Español</button>
+          <button type="button" class="menu-item" data-lang="en" aria-pressed="false">English</button>
+        </div>
+      </fieldset>
+      <fieldset class="opt">
+        <legend data-i18n="optMotion">Movimiento</legend>
+        <div class="seg">
+          <button type="button" class="menu-item" data-motion="full" aria-pressed="true" data-i18n="motionFull">Normal</button>
+          <button type="button" class="menu-item" data-motion="reduced" aria-pressed="false" data-i18n="motionReduced">Reducido</button>
+        </div>
+      </fieldset>
+    </div>
+  </section>
+
+</main>
+
+<!-- FICHA DE PROYECTO -->
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-inner">
+    <button class="sheet-close mono" type="button" id="sheet-close" data-i18n="close">Cerrar ✕</button>
+    <div class="sheet-cover" id="sheet-cover" aria-hidden="true"></div>
+    <h3 id="sheet-title"></h3>
+    <p class="sheet-meta mono" id="sheet-meta"></p>
+    <p class="sheet-body" id="sheet-body"></p>
+    <dl class="sheet-facts" id="sheet-facts"></dl>
+    <div class="sheet-links" id="sheet-links"></div>
+  </div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
