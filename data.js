@@ -18,7 +18,7 @@ window.PORTFOLIO = {
       tags: ["Python", "SQL", "Estadística"]
     },
     {
-      id: "silverswift", title: "Silver Swift", cover: "SS", logo: "silver-swift", shots: ["silver-swift-01-rendimiento", "silver-swift-02-progreso"], modes: ["a"], repo: "", date: "2026-08-30", status: "dev",
+      id: "silverswift", title: "Silver Swift", cover: "SS", logo: "silver-swift", shots: ["silver-swift-caso-01-portada", "silver-swift-caso-02-logica", "silver-swift-caso-03-telemetria", "silver-swift-caso-04-interfaz"], modes: ["a"], repo: "", date: "2026-08-30", status: "dev",
       es: { kind: "Producto · Traducción", short: "Traducción multiformato: documentos, imágenes, audio y video.", long: "Plataforma de traducción que recibe documentos (EPUB, PDF, DOCX), imágenes con OCR, audio y video, detecta el tipo de medio y el idioma, y entrega la versión traducida en el mismo formato. El motor de traducción es intercambiable y corre con herramientas libres.", role: "Arquitectura, prototipo y medición de rendimiento" },
       en: { kind: "Product · Translation", short: "Multiformat translation: documents, images, audio and video.", long: "Translation platform that takes documents (EPUB, PDF, DOCX), images via OCR, audio and video, detects media type and language, and returns the translated version in the same format. The translation engine is swappable and runs on free tools.", role: "Architecture, prototype and performance measurement" },
       tags: ["Python", "LibreTranslate", "OCR"]
