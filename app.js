@@ -9,7 +9,7 @@
     es: {
       skip: "Saltar al contenido", tagline: "Datos de día. Historias de noche.",
       press: "Presiona Start", pressHint: "Enter o toca",
-      mNew: "Elegir modo", mCredits: "Créditos", mContact: "Contacto", mContinue: "Continuar", concept: "Arte conceptual", shotOf: "Imagen", mOptions: "Opciones",
+      mNew: "Elegir modo", mCredits: "Créditos", mContact: "Contacto", mContinue: "Continuar", concept: "Arte conceptual", shotOf: "Imagen", mOptions: "Opciones", dNew: "Mira mis proyectos: datos y apps, o historias.", dCredits: "Quién soy, mi experiencia y mis CV.", dContinue: "Escríbeme por correo, LinkedIn o GitHub.", dOptions: "Cambia el idioma y las animaciones.", iSelect: "Mi portafolio tiene dos lados. Elige uno para ver sus proyectos; puedes cambiar cuando quieras.", iCredits: "Mis dos perfiles: el de datos (Mario) y el de escritura (Atátoriz). Descarga el CV que te sirva.", hLang: "Cambia todo el sitio a español o inglés.", hMotion: "«Reducido» detiene las animaciones y los GIF.", iSavesA: "Cada partida es un proyecto de datos, app o videojuego. Toca una para ver de qué trata, cómo va y con qué lo hice.", iSavesN: "Cada partida es una historia o mundo que estoy escribiendo. Toca una para leer de qué trata.",
       controls: "↑ ↓ mover · Enter elegir · Esc volver",
       back: "← Menú", backModes: "← Modos", selectTitle: "Elige tu modo",
       modeA: "Modo Analista", modeADesc: "Datos, BI, apps y videojuegos. El lado que construye.",
@@ -25,7 +25,7 @@
     en: {
       skip: "Skip to content", tagline: "Data by day. Stories by night.",
       press: "Press Start", pressHint: "Enter or tap",
-      mNew: "Choose mode", mCredits: "Credits", mContact: "Contact", mContinue: "Continue", concept: "Concept art", shotOf: "Image", mOptions: "Options",
+      mNew: "Choose mode", mCredits: "Credits", mContact: "Contact", mContinue: "Continue", concept: "Concept art", shotOf: "Image", mOptions: "Options", dNew: "See my projects: data and apps, or stories.", dCredits: "Who I am, my experience and my CVs.", dContinue: "Reach me by email, LinkedIn or GitHub.", dOptions: "Change language and animations.", iSelect: "My portfolio has two sides. Pick one to see its projects; you can switch anytime.", iCredits: "My two profiles: data (Mario) and writing (Atátoriz). Download the CV you need.", hLang: "Switch the whole site to Spanish or English.", hMotion: "\u201cReduced\u201d stops animations and GIFs.", iSavesA: "Each save is a data, app or game project. Tap one to see what it is, where it stands and what I built it with.", iSavesN: "Each save is a story or world I am writing. Tap one to read what it is about.",
       controls: "↑ ↓ move · Enter select · Esc back",
       back: "← Menu", backModes: "← Modes", selectTitle: "Choose your mode",
       modeA: "Analyst Mode", modeADesc: "Data, BI, apps and games. The side that builds.",
@@ -127,6 +127,7 @@
     const sw = $("#mode-switch");
     sw.href = mode === "a" ? "#narrador" : "#analista";
     sw.textContent = mode === "a" ? t().goN : t().goA;
+    $("#saves-intro").textContent = mode === "a" ? t().iSavesA : t().iSavesN;
     $("#saves-h").textContent = `${mode === "a" ? t().modeA : t().modeN} · ${t().saves}`;
   }
 

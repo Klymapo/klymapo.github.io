@@ -314,3 +314,68 @@ body[data-screen="title"] .mascot { display: none; }
   .bubble { max-width: 170px; font-size: .75rem; }
   .saves-hero img { width: 84px; }
 }
+
+/* ===== Menú principal: tarjetas de color animadas ===== */
+.main-menu ul { max-width: 460px; gap: 10px; }
+.main-menu .mi {
+  display: flex; align-items: center; gap: 14px; padding: 12px 16px; font-size: 1.1rem;
+  border: 1px solid var(--line); border-left: 4px solid var(--c); background: color-mix(in srgb, var(--c) 6%, transparent);
+  transition: transform 180ms var(--ease), background-color 180ms var(--ease), border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+  animation: mi-in 420ms var(--ease) both;
+}
+.main-menu li:nth-child(2) .mi { animation-delay: 70ms; }
+.main-menu li:nth-child(3) .mi { animation-delay: 140ms; }
+.main-menu li:nth-child(4) .mi { animation-delay: 210ms; }
+@keyframes mi-in { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+.main-menu .mi::before { content: none; }
+.mi-ico {
+  flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 8px;
+  background: var(--c); color: #0e1215; font-size: 1.05rem;
+}
+.mi-txt { display: grid; gap: 2px; }
+.mi-name { font-weight: 600; color: var(--fg); }
+.mi-desc { font-size: .85rem; color: var(--muted); line-height: 1.35; }
+.main-menu .mi:hover, .main-menu .mi:focus-visible {
+  transform: translateX(6px); border-color: var(--c); outline: none;
+  background: color-mix(in srgb, var(--c) 14%, transparent); box-shadow: 0 6px 22px -14px var(--c);
+}
+.main-menu .mi:hover .mi-ico, .main-menu .mi:focus-visible .mi-ico { animation: hop 520ms var(--ease); }
+.main-menu .mi:active { transform: translateX(6px) scale(.98); }
+@keyframes hop { 0%,100% { transform: none; } 35% { transform: translateY(-5px) rotate(-8deg); } 65% { transform: translateY(1px) rotate(4deg); } }
+
+/* Textos de ayuda */
+.intro { color: var(--muted); max-width: 62ch; margin: -12px 0 24px; line-height: 1.55; }
+.opt-help { color: var(--muted); font-size: .9rem; margin: 0 0 10px; }
+
+/* Botones de regreso y cambio de modo */
+.back, .switch {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--line); transition: color 160ms var(--ease), border-color 160ms var(--ease), transform 160ms var(--ease), background-color 160ms var(--ease);
+}
+.back:hover, .back:focus-visible { color: var(--fg); border-color: #e8c46a; background: color-mix(in srgb, #e8c46a 10%, transparent); transform: translateX(-3px); outline: none; }
+.switch { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+.switch:hover, .switch:focus-visible { color: var(--accent-fg); background: var(--accent); transform: translateX(3px); outline: none; }
+
+/* Botones principales con brillo */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-120%);
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+}
+.btn:hover::after, .btn:focus-visible::after { transform: translateX(120%); transition: transform 600ms var(--ease); }
+.btn:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 8px 20px -10px var(--accent); }
+.credit-a .btn { background: #4fd1b0; color: #062019; }
+.credit-n .btn { background: #c4513a; color: #fbf3ea; }
+
+/* Opciones y contacto con color */
+.seg button { transition: transform 140ms var(--ease), border-color 140ms var(--ease), background-color 140ms var(--ease); }
+.seg button:hover { transform: translateY(-2px); border-color: #a78bfa; }
+.seg button[aria-pressed="true"] { border-color: #a78bfa; background: #a78bfa; color: #120e1f; }
+.contact-list li:nth-child(1) a { --c: #e07a6a; }
+.contact-list li:nth-child(2) a { --c: #6aa8e0; }
+.contact-list li:nth-child(3) a { --c: #4fd1b0; }
+.contact-list a { border-left: 4px solid var(--c); transition: transform 160ms var(--ease), border-color 160ms var(--ease), background-color 160ms var(--ease); }
+.contact-list a:hover, .contact-list a:focus-visible { transform: translateX(6px); border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, transparent); }
+
+body[data-motion="reduced"] .main-menu .mi, body[data-motion="reduced"] .mi-ico { animation: none !important; }
+body[data-motion="reduced"] .main-menu .mi:hover, body[data-motion="reduced"] .contact-list a:hover, body[data-motion="reduced"] .btn:hover { transform: none; }

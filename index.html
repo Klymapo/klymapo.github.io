@@ -32,10 +32,10 @@
     </button>
     <nav class="main-menu" id="main-menu" aria-label="Menú principal" hidden>
       <ul role="list">
-        <li><a class="menu-item" href="#modo" data-i18n="mNew">Elegir modo</a></li>
-        <li><a class="menu-item" href="#creditos" data-i18n="mCredits">Créditos</a></li>
-        <li><a class="menu-item" href="#contacto" data-i18n="mContinue">Continuar</a></li>
-        <li><a class="menu-item" href="#opciones" data-i18n="mOptions">Opciones</a></li>
+        <li><a class="menu-item mi" href="#modo" style="--c:#4fd1b0"><span class="mi-ico" aria-hidden="true">▶</span><span class="mi-txt"><span class="mi-name" data-i18n="mNew">Elegir modo</span><span class="mi-desc" data-i18n="dNew">Mira mis proyectos: datos y apps, o historias.</span></span></a></li>
+        <li><a class="menu-item mi" href="#creditos" style="--c:#e8c46a"><span class="mi-ico" aria-hidden="true">★</span><span class="mi-txt"><span class="mi-name" data-i18n="mCredits">Créditos</span><span class="mi-desc" data-i18n="dCredits">Quién soy, mi experiencia y mis CV.</span></span></a></li>
+        <li><a class="menu-item mi" href="#contacto" style="--c:#e07a6a"><span class="mi-ico" aria-hidden="true">✉</span><span class="mi-txt"><span class="mi-name" data-i18n="mContinue">Continuar</span><span class="mi-desc" data-i18n="dContinue">Escríbeme por correo, LinkedIn o GitHub.</span></span></a></li>
+        <li><a class="menu-item mi" href="#opciones" style="--c:#a78bfa"><span class="mi-ico" aria-hidden="true">⚙</span><span class="mi-txt"><span class="mi-name" data-i18n="mOptions">Opciones</span><span class="mi-desc" data-i18n="dOptions">Cambia el idioma y las animaciones.</span></span></a></li>
       </ul>
     </nav>
     <p class="controls mono" aria-hidden="true" data-i18n="controls">↑ ↓ mover · Enter elegir · Esc volver</p>
@@ -47,6 +47,7 @@
       <a class="back mono" href="#menu" data-i18n="back">← Menú</a>
       <h2 id="select-h" class="bar-title" data-i18n="selectTitle">Elige tu modo</h2>
     </header>
+    <p class="intro" data-i18n="iSelect">Mi portafolio tiene dos lados. Elige uno para ver sus proyectos; puedes cambiar cuando quieras.</p>
     <div class="modes">
       <a class="mode-card mode-a menu-item" href="#analista">
         <img class="px px-card" src="img/px/code.gif" data-still="img/px/code.png" width="168" height="132" alt="" aria-hidden="true">
@@ -72,6 +73,7 @@
       <h2 id="saves-h" class="bar-title" data-i18n="saves">Partidas guardadas</h2>
       <a class="switch mono" id="mode-switch" href="#narrador"></a>
     </header>
+    <p class="intro" id="saves-intro"></p>
     <div class="saves-hero" aria-hidden="true">
       <img class="px hero-a" src="img/px/code.gif" data-still="img/px/code.png" width="168" height="132" alt="">
       <img class="px hero-n" src="img/px/write.gif" data-still="img/px/write.png" width="168" height="132" alt="">
@@ -85,6 +87,7 @@
       <a class="back mono" href="#menu" data-i18n="back">← Menú</a>
       <h2 id="credits-h" class="bar-title" data-i18n="mCredits">Créditos</h2>
     </header>
+    <p class="intro" data-i18n="iCredits">Mis dos perfiles: el de datos (Mario) y el de escritura (Atátoriz). Descarga el CV que te sirva.</p>
     <div class="credits" id="credits"></div>
   </section>
 
@@ -113,6 +116,7 @@
     <div class="options">
       <fieldset class="opt">
         <legend data-i18n="optLang">Idioma</legend>
+        <p class="opt-help" data-i18n="hLang">Cambia todo el sitio a español o inglés.</p>
         <div class="seg">
           <button type="button" class="menu-item" data-lang="es" aria-pressed="true">Español</button>
           <button type="button" class="menu-item" data-lang="en" aria-pressed="false">English</button>
@@ -120,6 +124,7 @@
       </fieldset>
       <fieldset class="opt">
         <legend data-i18n="optMotion">Movimiento</legend>
+        <p class="opt-help" data-i18n="hMotion">«Reducido» detiene las animaciones y los GIF.</p>
         <div class="seg">
           <button type="button" class="menu-item" data-motion="full" aria-pressed="true" data-i18n="motionFull">Normal</button>
           <button type="button" class="menu-item" data-motion="reduced" aria-pressed="false" data-i18n="motionReduced">Reducido</button>
