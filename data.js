@@ -91,13 +91,15 @@ window.PORTFOLIO = {
     }
   ],
 
+  cvFiles: { a: "cv/CV_Mario_Martinez_Horta_Data_Analytics.pdf", n: "cv/CV_Atatoriz_Mario_Martinez_Horta_Narrativa.pdf" },
+
   credits: {
     es: {
       a: { name: "Mario Martínez Horta", role: "Analista de datos", lines: [
         ["Hoy", "Data Analyst Intern · Honeywell"],
         ["2024 a 2025", "Auditor y Supervisor Técnico · Copemsa"],
         ["2023 a 2024", "Técnico electromecánico · Meypar"],
-        ["Estudios", "Ingeniería Industrial y Administración (en curso) · Técnico en Mecatrónica · Certificación Data Analyst (Coderhouse)"],
+        ["Estudios", "Ingeniería Industrial y Administración (en curso) · Técnico en Mecatrónica · Data Analyst Foundations (Udemy)"],
         ["Herramientas", "Python, SQL, Power BI, Excel, Godot, Blender"],
         ["Idiomas", "Español nativo, inglés avanzado, alemán y francés básico"]
       ]},
@@ -106,14 +108,14 @@ window.PORTFOLIO = {
         ["Diseña", "Narrativa para videojuegos y partidas de rol"],
         ["Sagas", "AlasTheo, SIGNALIS"]
       ]},
-      cv: "¿Quieres mi CV? Pídemelo por correo"
+      cv: { a: "Descargar CV técnico (PDF)", n: "Descargar CV creativo (PDF)" }
     },
     en: {
       a: { name: "Mario Martínez Horta", role: "Data analyst", lines: [
         ["Now", "Data Analyst Intern · Honeywell"],
         ["2024 to 2025", "Technical Auditor and Supervisor · Copemsa"],
         ["2023 to 2024", "Electromechanical technician · Meypar"],
-        ["Education", "Industrial Engineering and Management (in progress) · Mechatronics technician · Data Analyst certification (Coderhouse)"],
+        ["Education", "Industrial Engineering and Management (in progress) · Mechatronics technician · Data Analyst Foundations (Udemy)"],
         ["Tools", "Python, SQL, Power BI, Excel, Godot, Blender"],
         ["Languages", "Native Spanish, advanced English, basic German and French"]
       ]},
@@ -122,7 +124,7 @@ window.PORTFOLIO = {
         ["Designs", "Narrative for video games and tabletop sessions"],
         ["Sagas", "AlasTheo, SIGNALIS"]
       ]},
-      cv: "Want my CV? Ask me by email"
+      cv: { a: "Download technical CV (PDF, Spanish)", n: "Download creative CV (PDF, Spanish)" }
     }
   }
 };

@@ -166,9 +166,9 @@
     const c = DATA.credits[lang];
     const block = (k, x) => `<article class="credit credit-${k}">
       <h3>${x.name}</h3><p class="credit-role mono">${x.role}</p>
-      <dl>${x.lines.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl></article>`;
-    $("#credits").innerHTML = block("a", c.a) + block("n", c.n) +
-      `<p class="cv-line"><a href="mailto:mariomtzhrt@gmail.com?subject=CV">${c.cv}</a></p>`;
+      <dl>${x.lines.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl>
+      <p class="cv-line"><a class="btn" href="${DATA.cvFiles[k]}" target="_blank" rel="noopener" download>${c.cv[k]}</a></p></article>`;
+    $("#credits").innerHTML = block("a", c.a) + block("n", c.n);
   }
 
   // ---------- Navegación ----------
