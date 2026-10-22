@@ -196,6 +196,7 @@ body[data-mode="n"] .cover::after { content: ""; position: absolute; width: 140%
 .cover span { position: relative; z-index: 1; }
 .cover img { position: relative; z-index: 1; width: 100%; height: 100%; }
 .cover-logo img { object-fit: contain; padding: 8%; }
+body[data-mode] .cover-logo.logo-light { background: #f4efe6; }
 .cover-poster img { object-fit: cover; }
 body[data-mode] .cover-poster::after, body[data-mode] .cover-logo::after { display: none; }
 body[data-mode] .cover-logo { border-bottom: 3px solid var(--accent); }

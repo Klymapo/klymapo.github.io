@@ -42,16 +42,28 @@ window.PORTFOLIO = {
       tags: ["Godot", "GDScript", "Narrativa"]
     },
     {
-      id: "copox", title: "COPOX", cover: "CX", logo: "copox", shots: ["copox-proceso-01-volumen-alpha", "copox-proceso-02-topologia-alpha", "copox-proceso-03-materiales-alpha"], modes: ["a"], repo: "COPOX", status: "exp",
+      id: "copox", title: "COPOX", cover: "CX", logo: "copox", shots: ["copox-proceso-01-volumen-alpha", "copox-proceso-02-topologia-alpha", "copox-proceso-03-materiales-alpha", { src: "copox-etapa-theo-v4-3", es: "Etapa actual · Theo V4.3, en revisión", en: "Current stage · Theo V4.3, under review" }, { src: "copox-etapa-alastor-v12", es: "Etapa actual · Alastor V12, en revisión", en: "Current stage · Alastor V12, under review" }], modes: ["a"], repo: "COPOX", status: "exp",
       es: { kind: "3D · Automatización", short: "Personajes 3D low-poly generados con scripts de Blender.", long: "Laboratorio de assets 3D en estilo chibi low-poly para el videojuego. Los modelos se generan con scripts de Blender que corren sin interfaz, incluso en GitHub Actions, con un estándar de medidas y pruebas de comparación.", role: "Pipeline 3D y automatización" },
       en: { kind: "3D · Automation", short: "Low-poly 3D characters generated with Blender scripts.", long: "Lab of chibi low-poly 3D assets for the game. Models are built with headless Blender scripts, including on GitHub Actions, following a measurement standard and comparison tests.", role: "3D pipeline and automation" },
       tags: ["Blender", "Python", "GitHub Actions"]
     },
     {
-      id: "sunraku", title: "SUNRAKU", cover: "SR", logo: "sunraku", shots: ["sunraku-ux-ui-propuesta-v01"], concept: true, modes: ["a"], repo: "SUNRAKU-", status: "design",
-      es: { kind: "App · Voz IA", short: "Estudio de voz IA para cinemáticas y para Rupert.", long: "Herramienta para generar las voces de las cinemáticas del videojuego y la voz de Rupert. Usa solo modelos de voz con licencia comercial libre y voces con consentimiento escrito.", role: "Diseño de producto" },
-      en: { kind: "App · AI voice", short: "AI voice studio for game cutscenes and Rupert.", long: "Tool to voice the game's cutscenes and Rupert. It only uses openly licensed voice models and voices with written consent.", role: "Product design" },
-      tags: ["TTS", "Python"]
+      id: "sunraku", title: "SUNRAKU", cover: "SR", logo: "sunraku-v02", logoBg: "light", shots: ["sunraku-ux-ui-propuesta-v02"], concept: true, modes: ["a"], repo: "SUNRAKU-", date: "2026-10-22", status: "design",
+      es: { kind: "App · Texto a voz", short: "Estudio privado para convertir textos en narración.", long: "Importa texto pegado, TXT, DOCX, EPUB o PDF, lo divide en capítulos y fragmentos editables y prepara paquetes de trabajo para generar la narración en sesiones manuales de cómputo gratuito. Después se importan y revisan los audios. Solo usa voces propias o autorizadas y modelos con licencia comercial libre. Las cinemáticas del videojuego y la voz de Rupert quedan para una etapa posterior.", role: "Diseño de producto" },
+      en: { kind: "App · Text to speech", short: "Private studio that turns text into narration.", long: "Imports pasted text, TXT, DOCX, EPUB or PDF, splits it into editable chapters and fragments, and prepares job packages to generate narration in manual sessions on free compute. Audio is then imported and reviewed. It only uses own or authorized voices and models with commercial-friendly licenses. Game cutscenes and Rupert's voice come in a later stage.", role: "Product design" },
+      tags: ["TTS", "React", "Cloudflare Workers"]
+    },
+    {
+      id: "rimuru", title: "RIMURU", cover: "RM", logo: "rimuru", logoBg: "light", shots: ["rimuru-ux-ui-propuesta-v01"], concept: true, modes: ["a", "n"], repo: "", date: "2026-10-22", status: "design",
+      es: { kind: "App · Convocatorias", short: "Radar de concursos y convocatorias para novela, cuento y guion.", long: "Busca concursos, convocatorias y proyectos independientes de escritura en varios idiomas, con filtros por género, país y cuota. Cada ficha guarda bases, fechas, requisitos y derechos con su fuente, y un tablero sigue cada participación hasta el resultado. No sube manuscritos ni envía postulaciones por su cuenta.", role: "Diseño de producto" },
+      en: { kind: "App · Open calls", short: "Radar for novel, short story and screenplay contests and open calls.", long: "Finds writing contests, open calls and indie projects in several languages, with filters by genre, country and fee. Each entry keeps rules, dates, requirements and rights with their source, and a board tracks every submission until the result. It never uploads manuscripts or submits on its own.", role: "Product design" },
+      tags: ["React", "Cloudflare Workers", "PWA"]
+    },
+    {
+      id: "guardian", title: "GUARDIAN", cover: "GD", logo: "guardian", logoBg: "light", shots: ["guardian-ux-ui-propuesta-v01"], concept: true, modes: ["a"], repo: "", date: "2026-10-22", status: "design",
+      es: { kind: "App · Datos abiertos", short: "Avisos de fenómenos naturales de fuentes oficiales, cerca de ti y en el mundo.", long: "Panel de eventos y avisos oficiales de fenómenos naturales con mapa complementario, filtros por tipo y zona, y notificaciones. Separa lo observado de los avisos oficiales y muestra siempre la fuente y la hora. Nace de mi participación en Meta Quetzal, en el NASA Space Apps Challenge.", role: "Diseño de producto y datos" },
+      en: { kind: "App · Open data", short: "Natural hazard alerts from official sources, nearby and worldwide.", long: "Dashboard of natural events and official advisories with a companion map, filters by type and area, and notifications. It keeps observations apart from official warnings and always shows source and time. It grew out of my team's Meta Quetzal project at the NASA Space Apps Challenge.", role: "Product and data design" },
+      tags: ["NASA EONET", "React", "Cloudflare Workers"]
     },
     {
       id: "atlas", title: "ATLAS", cover: "AT", logo: "atlas", shots: ["atlas-inicio", "atlas-investigar-v09"], modes: ["a", "n"], repo: "ATLAS", status: "exp",

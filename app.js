@@ -93,7 +93,7 @@
   const IMG = n => `img/${n}.webp`;
   function coverHTML(p) {
     if (p.poster) return `<div class="cover cover-poster"><img src="${IMG(p.poster)}" alt="" loading="lazy" decoding="async"></div>`;
-    if (p.logo) return `<div class="cover cover-logo"><img src="img/logo-${p.logo}.webp" alt="" loading="lazy" decoding="async"></div>`;
+    if (p.logo) return `<div class="cover cover-logo${p.logoBg === "light" ? " logo-light" : ""}"><img src="img/logo-${p.logo}.webp" alt="" loading="lazy" decoding="async"></div>`;
     return `<div class="cover"><span>${p.cover}</span></div>`;
   }
   function galleryHTML(p) {
