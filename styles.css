@@ -194,6 +194,19 @@ body[data-mode="a"] .cover::after { content: ""; position: absolute; left: 0; ri
 body[data-mode="n"] .cover { background: radial-gradient(circle at 30% 20%, #3a2a22, #13110f 70%); font-weight: 400; letter-spacing: 0; }
 body[data-mode="n"] .cover::after { content: ""; position: absolute; width: 140%; height: 2px; background: var(--accent); transform: rotate(-32deg); opacity: .8; }
 .cover span { position: relative; z-index: 1; }
+.cover img { position: relative; z-index: 1; width: 100%; height: 100%; }
+.cover-logo img { object-fit: contain; padding: 8%; }
+.cover-poster img { object-fit: cover; }
+body[data-mode] .cover-poster::after, body[data-mode] .cover-logo::after { display: none; }
+body[data-mode] .cover-logo { border-bottom: 3px solid var(--accent); }
+.gallery { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; border-radius: calc(var(--radius) - 2px); }
+.gallery figure { flex: 0 0 88%; margin: 0; scroll-snap-align: start; }
+.gallery img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: calc(var(--radius) - 2px); border: 1px solid var(--line); background: var(--bg); }
+.gallery figure:only-child { flex-basis: 100%; }
+.gallery figure:only-child img { aspect-ratio: auto; max-height: 52vh; object-fit: contain; }
+.gallery figcaption { color: var(--muted); font-size: .75rem; margin-top: 6px; }
+.gallery-poster img { aspect-ratio: auto; max-height: 56vh; width: auto; margin: 0 auto; object-fit: contain; border: 0; }
+.concept { color: var(--muted); font-size: .75rem; margin: 6px 0 0; }
 
 /* ===== Ficha ===== */
 .sheet {
@@ -206,7 +219,8 @@ body[data-mode="n"] .cover::after { content: ""; position: absolute; width: 140%
 .sheet-inner { padding: clamp(20px, 4vw, 32px); display: grid; gap: 14px; }
 .sheet-close { justify-self: end; background: none; border: 0; color: var(--muted); cursor: pointer; padding: 6px 0; }
 .sheet-close:hover { color: var(--fg); }
-.sheet-cover { height: 120px; }
+.sheet-cover { min-height: 120px; }
+.sheet-cover > .cover { height: 120px; }
 .sheet-cover .cover { aspect-ratio: auto; height: 100%; font-size: 3rem; }
 .sheet h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
 .sheet-meta { color: var(--muted); margin: 0; }

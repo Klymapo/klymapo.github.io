@@ -9,7 +9,7 @@
     es: {
       skip: "Saltar al contenido", tagline: "Datos de día. Historias de noche.",
       press: "Presiona Start", pressHint: "Enter o toca",
-      mNew: "Elegir modo", mCredits: "Créditos", mContact: "Contacto", mOptions: "Opciones",
+      mNew: "Elegir modo", mCredits: "Créditos", mContact: "Contacto", mContinue: "Continuar", concept: "Arte conceptual", shotOf: "Imagen", mOptions: "Opciones",
       controls: "↑ ↓ mover · Enter elegir · Esc volver",
       back: "← Menú", backModes: "← Modos", selectTitle: "Elige tu modo",
       modeA: "Modo Analista", modeADesc: "Datos, BI, apps y videojuegos. El lado que construye.",
@@ -25,7 +25,7 @@
     en: {
       skip: "Skip to content", tagline: "Data by day. Stories by night.",
       press: "Press Start", pressHint: "Enter or tap",
-      mNew: "Choose mode", mCredits: "Credits", mContact: "Contact", mOptions: "Options",
+      mNew: "Choose mode", mCredits: "Credits", mContact: "Contact", mContinue: "Continue", concept: "Concept art", shotOf: "Image", mOptions: "Options",
       controls: "↑ ↓ move · Enter select · Esc back",
       back: "← Menu", backModes: "← Modes", selectTitle: "Choose your mode",
       modeA: "Analyst Mode", modeADesc: "Data, BI, apps and games. The side that builds.",
@@ -90,7 +90,23 @@
   }
 
   // ---------- Partidas guardadas ----------
-  function coverHTML(p) { return `<div class="cover"><span>${p.cover}</span></div>`; }
+  const IMG = n => `img/${n}.webp`;
+  function coverHTML(p) {
+    if (p.poster) return `<div class="cover cover-poster"><img src="${IMG(p.poster)}" alt="" loading="lazy" decoding="async"></div>`;
+    if (p.logo) return `<div class="cover cover-logo"><img src="img/logo-${p.logo}.webp" alt="" loading="lazy" decoding="async"></div>`;
+    return `<div class="cover"><span>${p.cover}</span></div>`;
+  }
+  function galleryHTML(p) {
+    if (p.poster) return `<div class="gallery gallery-poster"><img src="${IMG(p.poster)}" alt="${t().shotOf}: ${p.title}" decoding="async"></div>`;
+    if (!p.shots || !p.shots.length) return coverHTML(p);
+    const items = p.shots.map((s, i) => {
+      const src = typeof s === "string" ? s : s.src;
+      const cap = typeof s === "string" ? "" : (s[lang] || "");
+      const alt = cap || `${t().shotOf} ${i + 1}: ${p.title}`;
+      return `<figure><img src="${IMG(src)}" alt="${alt}" loading="lazy" decoding="async">${cap ? `<figcaption class="mono">${cap}</figcaption>` : ""}</figure>`;
+    }).join("");
+    return `<div class="gallery">${items}</div>${p.concept ? `<p class="concept mono">${t().concept}</p>` : ""}`;
+  }
 
   function renderSlots() {
     const mode = document.body.dataset.mode;
@@ -122,12 +138,12 @@
     if (!p) return;
     const c = p[lang];
     lastFocus = document.activeElement;
-    $("#sheet-cover").innerHTML = coverHTML(p);
+    $("#sheet-cover").innerHTML = galleryHTML(p);
     $("#sheet-title").textContent = p.title;
     const d = dateOf(p);
     $("#sheet-meta").textContent = [c.kind, t().status[p.status], d && `${t().updated} ${d}`].filter(Boolean).join(" · ");
     $("#sheet-body").textContent = c.long;
-    const TAG_EN = { "Estadística": "Statistics", "Narrativa": "Narrative", "Diseño narrativo": "Narrative design", "Novela negra": "Noir", "Misterio": "Mystery", "En desarrollo": "In progress" };
+    const TAG_EN = { "Estadística": "Statistics", "Narrativa": "Narrative", "Diseño narrativo": "Narrative design", "Novela negra": "Noir", "Misterio": "Mystery", "En desarrollo": "In progress", "Fantasía": "Fantasy" };
     const tags = p.tags.map(x => lang === "en" ? (TAG_EN[x] || x) : x).join(", ");
     const label = p.status === "writing" ? t().genre : t().stack;
     $("#sheet-facts").innerHTML = `<dt>${t().role}</dt><dd>${c.role}</dd><dt>${label}</dt><dd>${tags}</dd>`;
