@@ -36,7 +36,7 @@ window.PORTFOLIO = {
       tags: ["Node.js", "Offline-first"]
     },
     {
-      id: "peso", title: "El peso de los nombres", cover: "PN", logo: "el-peso-de-los-nombres", shots: [{ src: "wallow-general-godot", es: "Wallow Port V12 corriendo en Godot 4.7.2", en: "Wallow Port V12 running in Godot 4.7.2" }], modes: ["a", "n"], repo: "", date: "2026-10-12", status: "dev",
+      id: "peso", title: "El peso de los nombres", cover: "PN", logo: "el-peso-de-los-nombres", shots: ["peso-hub-inicio", "peso-hub-mapa", "peso-b2-lectura", "peso-4-cambio-a-theo", "peso-cinematica-theo-alastor"], modes: ["a", "n"], repo: "", date: "2026-10-12", status: "dev",
       es: { kind: "Videojuego · Godot", short: "Whodunit noir en 3D ambientado en el mundo de AlasTheo.", long: "Videojuego de misterio en Godot con personajes 3D estilo chibi low-poly. Une la investigación tipo whodunit con el mundo y los personajes de la saga AlasTheo. El código es privado mientras está en desarrollo.", role: "Diseño de juego, narrativa y desarrollo" },
       en: { kind: "Video game · Godot", short: "3D noir whodunit set in the AlasTheo world.", long: "Mystery game in Godot with chibi low-poly 3D characters. It blends whodunit investigation with the world and cast of the AlasTheo saga. Source is private while in development.", role: "Game design, narrative and development" },
       tags: ["Godot", "GDScript", "Narrativa"]
