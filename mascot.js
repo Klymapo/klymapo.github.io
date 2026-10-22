@@ -27,7 +27,7 @@
   };
   const lang = () => (document.documentElement.lang === "en" ? "en" : "es");
   const reduced = () => document.body.dataset.motion === "reduced" || matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const src = n => (reduced() ? "img/px/m_idle.png" : `img/px/m_${n}.gif`);
+  const src = n => (reduced() ? "img/px2/m_idle.png" : `img/px2/m_${n}.gif`);
 
   let poseTimer, talkTimer, last = null;
   function pose(name, ms) {
