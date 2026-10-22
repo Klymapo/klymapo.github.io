@@ -22,6 +22,7 @@
   <section class="screen screen-title" id="screen-title" aria-labelledby="title-name">
     <p class="brand mono">KLYMAPO</p>
     <div class="title-block">
+      <img class="px px-run" src="img/px/run.gif" data-still="img/px/run.png" width="384" height="144" alt="" aria-hidden="true">
       <h1 id="title-name">Mario Martínez Horta</h1>
       <p class="title-sub" data-i18n="tagline">Datos de día. Historias de noche.</p>
     </div>
@@ -48,12 +49,14 @@
     </header>
     <div class="modes">
       <a class="mode-card mode-a menu-item" href="#analista">
+        <img class="px px-card" src="img/px/code.gif" data-still="img/px/code.png" width="168" height="132" alt="" aria-hidden="true">
         <span class="mode-kicker mono">Mario</span>
         <span class="mode-name" data-i18n="modeA">Modo Analista</span>
         <span class="mode-desc" data-i18n="modeADesc">Datos, BI, apps y videojuegos. El lado que construye.</span>
         <span class="mode-count mono" data-count="a"></span>
       </a>
       <a class="mode-card mode-n menu-item" href="#narrador">
+        <img class="px px-card" src="img/px/write.gif" data-still="img/px/write.png" width="168" height="132" alt="" aria-hidden="true">
         <span class="mode-kicker mono">Atátoriz</span>
         <span class="mode-name" data-i18n="modeN">Modo Narrador</span>
         <span class="mode-desc" data-i18n="modeNDesc">Novela negra, ciencia ficción y diseño narrativo. El lado que cuenta.</span>
@@ -69,6 +72,10 @@
       <h2 id="saves-h" class="bar-title" data-i18n="saves">Partidas guardadas</h2>
       <a class="switch mono" id="mode-switch" href="#narrador"></a>
     </header>
+    <div class="saves-hero" aria-hidden="true">
+      <img class="px hero-a" src="img/px/code.gif" data-still="img/px/code.png" width="168" height="132" alt="">
+      <img class="px hero-n" src="img/px/write.gif" data-still="img/px/write.png" width="168" height="132" alt="">
+    </div>
     <ol class="slots" id="slots" role="list"></ol>
   </section>
 
@@ -123,6 +130,12 @@
 
 </main>
 
+<!-- MASCOTA -->
+<div class="mascot" id="mascot" aria-hidden="true">
+  <p class="bubble mono" id="mascot-bubble"></p>
+  <img id="mascot-img" src="img/px/m_idle.gif" width="72" height="96" alt="">
+</div>
+
 <!-- FICHA DE PROYECTO -->
 <dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
   <div class="sheet-inner">
@@ -138,5 +151,6 @@
 
 <script src="data.js"></script>
 <script src="app.js"></script>
+<script src="mascot.js"></script>
 </body>
 </html>

@@ -277,3 +277,40 @@ body[data-mode] .cover-logo { border-bottom: 3px solid var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ===== Pixel art ===== */
+.px { image-rendering: pixelated; image-rendering: crisp-edges; height: auto; display: block; }
+.px-run { width: min(384px, 100%); margin: 0 0 12px -6px; }
+.px-card { width: min(168px, 55%); align-self: flex-start; margin-bottom: auto; transition: transform var(--t) var(--ease); }
+.mode-card:hover .px-card, .mode-card:focus-visible .px-card { transform: translateY(-4px) scale(1.04); }
+.saves-hero { display: flex; justify-content: flex-end; margin: -8px 0 8px; }
+.saves-hero img { width: 112px; }
+body[data-mode="a"] .hero-n, body[data-mode="n"] .hero-a { display: none; }
+
+/* Partidas: entrada escalonada y realce */
+.slots > li { animation: enter 360ms var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
+.slot { transition: border-color var(--t) var(--ease), transform 160ms var(--ease), box-shadow 160ms var(--ease); }
+.slot:hover, .slot:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 22px -12px var(--accent); }
+.slot:hover .cover img, .slot:focus-visible .cover img { transform: scale(1.06); }
+.cover img { transition: transform 200ms var(--ease); }
+body[data-motion="reduced"] .slots > li { animation: none; }
+body[data-motion="reduced"] .slot:hover, body[data-motion="reduced"] .slot:focus-visible { transform: none; }
+
+/* ===== Mascota ===== */
+.mascot { position: fixed; right: 14px; bottom: 10px; z-index: 30; pointer-events: none; display: flex; flex-direction: column; align-items: flex-end; }
+body[data-screen="title"] .mascot { display: none; }
+.mascot img { width: 72px; height: 96px; image-rendering: pixelated; filter: drop-shadow(0 4px 6px rgba(0,0,0,.45)); }
+.bubble {
+  position: relative; margin: 0 6px 6px 0; max-width: 220px; padding: 7px 11px;
+  background: var(--fg); color: var(--bg); border-radius: 10px; font-size: .8rem; line-height: 1.35;
+  opacity: 0; transform: translateY(6px) scale(.95); transform-origin: bottom right;
+  transition: opacity 160ms var(--ease), transform 160ms var(--ease);
+}
+.bubble::after { content: ""; position: absolute; right: 22px; bottom: -6px; border: 6px solid transparent; border-top-color: var(--fg); border-bottom: 0; }
+.mascot.talk .bubble { opacity: 1; transform: none; }
+@media (max-width: 767px) {
+  .mascot { right: 6px; bottom: 6px; }
+  .mascot img { width: 54px; height: 72px; }
+  .bubble { max-width: 170px; font-size: .75rem; }
+  .saves-hero img { width: 84px; }
+}

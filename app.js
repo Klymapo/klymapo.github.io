@@ -114,7 +114,7 @@
     $("#slots").innerHTML = list.map((p, i) => {
       const c = p[lang];
       const d = dateOf(p);
-      return `<li><button class="slot menu-item" type="button" data-id="${p.id}">
+      return `<li style="--i:${i}"><button class="slot menu-item" type="button" data-id="${p.id}">
         ${coverHTML(p)}
         <span>
           <span class="slot-num mono">${t().slot} ${String(i + 1).padStart(2, "0")} · ${c.kind}</span>
