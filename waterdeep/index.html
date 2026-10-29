@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hojas · Un Vampiro en Waterdeep</title>
+<meta name="description" content="Hojas de personaje rellenables (D&D 5e 2024) para el one shot de Halloween de DM Lanz MKD.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hoja.css">
+</head>
+<body data-tab="editar">
+<header class="bar">
+  <h1>Un Vampiro en Waterdeep<small>Hojas de personaje · D&amp;D 5e 2024</small></h1>
+  <div class="swatches" role="group" aria-label="Diseño">
+    <button class="sw naranja" data-t="naranja" title="Naranja"></button>
+    <button class="sw morado" data-t="morado" title="Morado"></button>
+    <button class="sw azul" data-t="azul" title="Azul"></button>
+    <button class="sw rojo" data-t="rojo" title="Rojo"></button>
+  </div>
+  <select class="btn" id="pregen" aria-label="Cargar personaje">
+    <option value="">Personaje…</option>
+    <option value="kael">Kael Vesper · Pícaro</option>
+    <option value="seraphine">Seraphine Dathen · Clériga</option>
+    <option value="aldric">Aldric Morn · Mago</option>
+    <option value="thorne">Thorne Althar · Paladín</option>
+    <option value="nueva">Hoja en blanco</option>
+  </select>
+  <button class="btn" id="btnLoad">Abrir</button>
+  <button class="btn" id="btnSave">Guardar</button>
+  <button class="btn pri" id="btnPrint">Imprimir / PDF</button>
+  <div class="tabs">
+    <button class="btn" data-tab="editar" aria-pressed="true">Editar</button>
+    <button class="btn" data-tab="hoja" aria-pressed="false">Ver hoja</button>
+  </div>
+</header>
+<main class="wrap">
+  <section class="form" id="form"></section>
+  <section class="view"><div class="stage" id="stage"><div class="sheet" id="sheet"></div></div></section>
+</main>
+<input type="file" id="jsonFile" accept=".json,application/json" hidden>
+<input type="file" id="retFile" accept="image/*" hidden>
+<script src="datos.js"></script>
+<script src="hoja.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+/* ===== Hojas de personaje · Un Vampiro en Waterdeep ===== */
+:root{
+  --ui-bg:#141016; --ui-panel:#1f1a22; --ui-line:#3a3140; --ui-text:#efe6d8; --ui-dim:#a89c8e; --ui-acc:#e08a3c;
+  --perg:#f4e6c8; --perg2:#ead6ae;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ui-bg);color:var(--ui-text);font:15px/1.4 "Crimson Pro",Georgia,serif}
+button,input,select,textarea{font:inherit;color:inherit}
+
+/* ---------- barra ---------- */
+.bar{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px;background:#0e0b10ee;border-bottom:1px solid var(--ui-line);backdrop-filter:blur(6px)}
+.bar h1{font:800 18px "Alegreya",serif;margin:0 auto 0 0;letter-spacing:.02em}
+.bar h1 small{display:block;font:400 12px "Crimson Pro",serif;color:var(--ui-dim)}
+.btn{background:#2a2330;border:1px solid var(--ui-line);border-radius:8px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--ui-acc)}
+.btn.pri{background:var(--ui-acc);border-color:var(--ui-acc);color:#1a0f06;font-weight:700}
+select.btn{padding-right:28px}
+.swatches{display:flex;gap:6px}
+.sw{width:28px;height:28px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 2px var(--ui-acc)}
+.sw.naranja{background:linear-gradient(135deg,#e07a24,#3b1a08)}
+.sw.morado{background:linear-gradient(135deg,#9a4ec0,#24102c)}
+.sw.azul{background:linear-gradient(135deg,#3a8ad0,#0b1a2c)}
+.sw.rojo{background:linear-gradient(135deg,#c42a2a,#2a0a0a)}
+.tabs{display:none;gap:6px;width:100%}
+.tabs .btn{flex:1}
+.tabs .btn[aria-pressed="true"]{background:var(--ui-acc);color:#1a0f06;border-color:var(--ui-acc)}
+
+/* ---------- layout ---------- */
+.wrap{display:grid;grid-template-columns:minmax(320px,420px) 1fr;gap:20px;padding:16px;max-width:1500px;margin:0 auto}
+.form{display:flex;flex-direction:column;gap:10px}
+.view{min-width:0}
+.stage{position:relative;width:100%;max-width:900px;margin:0 auto}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr;padding:12px 16px}
+  .tabs{display:flex}
+  body[data-tab="hoja"] .form{display:none}
+  body[data-tab="editar"] .view{display:none}
+}
+
+/* ---------- formulario ---------- */
+details.sec{background:var(--ui-panel);border:1px solid var(--ui-line);border-radius:10px;overflow:hidden}
+details.sec>summary{cursor:pointer;padding:10px 14px;font:700 16px "Alegreya",serif;list-style:none;display:flex;justify-content:space-between}
+details.sec>summary::after{content:"＋";color:var(--ui-dim)}
+details.sec[open]>summary::after{content:"－"}
+.sec .in{padding:4px 14px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px 10px}
+.f{display:flex;flex-direction:column;gap:2px;min-width:0}
+.f.full{grid-column:1/-1}
+.f>span{font-size:12px;color:var(--ui-dim)}
+.f input,.f select,.f textarea{background:#14101a;border:1px solid var(--ui-line);border-radius:6px;padding:6px 8px;width:100%}
+.f textarea{min-height:76px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--ui-acc)}
+.hint{grid-column:1/-1;font-size:12px;color:var(--ui-dim);margin:0}
+.abil-in{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.abil-in label{background:#14101a;border:1px solid var(--ui-line);border-radius:8px;padding:6px;text-align:center}
+.abil-in b{display:block;font-size:12px;color:var(--ui-dim)}
+.abil-in input{width:100%;text-align:center;font-size:20px;background:none;border:0;padding:0}
+.abil-in i{font-style:normal;color:var(--ui-acc);font-weight:700}
+.chk{display:flex;gap:6px;align-items:center;font-size:14px}
+.skills-in{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:4px 8px;align-items:center}
+.skills-in select{background:#14101a;border:1px solid var(--ui-line);border-radius:6px;padding:3px 6px}
+.saves-in{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.atk{grid-column:1/-1;border:1px solid var(--ui-line);border-radius:8px;padding:8px;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.atk .f{grid-column:span 2}
+.atk .f.w3{grid-column:span 3}
+.atk .f.w6{grid-column:1/-1}
+.atk .row-end{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+.ret-ctrl{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ret-ctrl input[type=range]{flex:1;min-width:90px}
+
+/* ============ HOJA (diseño a 1000 × 1414 px) ============ */
+.sheet{position:absolute;top:0;left:0;width:1000px;height:1414px;transform-origin:0 0;
+  background:#000 center/100% 100% no-repeat;color:#2a1a10;font-family:"Crimson Pro",Georgia,serif;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;overflow:hidden}
+.t-naranja{--L:3.6;--R:96.4;--T:9.9;--B:94.4;--PB:93.1;--nx:83.6;--ink:#2b1608;--acc:#a8501b;background-image:url(img/naranja.jpg);
+  --logo:polygon(91.2% 85.9%,98.2% 88.7%,98.2% 95.2%,91.2% 97.9%,87.7% 96.3%,73.6% 99%,72.5% 96.5%,84% 94.3%,84% 88.7%)}
+.t-morado{--L:5.2;--R:96.4;--T:12.1;--B:90.4;--PB:89.9;--nx:80.3;--ink:#22102a;--acc:#7a3794;background-image:url(img/morado.jpg);
+  --logo:polygon(88.5% 82.3%,96.5% 85.5%,96.5% 92.8%,88.5% 96.1%,82.3% 93.5%,66.5% 97.6%,64.7% 93.8%,80.6% 90.4%,80.6% 85.5%)}
+.t-azul{--L:3.8;--R:96.9;--T:10.8;--B:95.5;--PB:92.8;--nx:84;--ink:#0b1a2c;--acc:#285f8f;background-image:url(img/azul.jpg);
+  --logo:polygon(92.7% 86.8%,98.9% 89.2%,98.9% 94.7%,92.7% 97.4%,88.3% 95%,74.6% 98.3%,73.1% 95.5%,86.4% 92.1%,86.4% 89.2%)}
+.t-rojo{--L:3.4;--R:96.1;--T:11;--B:96.3;--PB:95.9;--nx:83.4;--ink:#2a0a0a;--acc:#951b1b;background-image:url(img/rojo.jpg);
+  --logo:polygon(90.8% 85.6%,96.7% 88.1%,96.7% 92.9%,98.2% 92.7%,99% 96.1%,84.7% 98.6%,83.7% 94.7%,84.8% 94.5%,84.8% 88.1%)}
+
+/* capa oscura que tapa la plantilla original */
+.base{position:absolute;left:calc(var(--L)*10px);top:calc(var(--T)*14.14px);
+  width:calc((var(--R) - var(--L))*10px);height:calc((var(--B) - var(--T))*14.14px);
+  background:radial-gradient(ellipse at 50% 40%,color-mix(in srgb,var(--ink) 80%,#000) 0%,var(--ink) 100%);border-radius:10px}
+/* el logo del DM se vuelve a pintar encima, recortado con su forma */
+.logo{position:absolute;inset:0;background:inherit;background-size:100% 100%;clip-path:var(--logo);z-index:2;pointer-events:none}
+.area{position:absolute;left:calc(var(--L)*10px + 8px);top:calc(var(--T)*14.14px + 8px);
+  width:calc((var(--R) - var(--L))*10px - 16px);height:calc((var(--PB) - var(--T))*14.14px - 8px);
+  display:flex;flex-direction:column;gap:9px}
+.row{display:flex;gap:9px;min-height:0}
+.col{display:flex;flex-direction:column;gap:9px;min-width:0;min-height:0}
+.r1{flex:21 1 0}.r2{flex:35 1 0}.r3{flex:18 1 0}.r4{flex:26 1 0}
+
+.box{position:relative;min-height:0;min-width:0;display:flex;flex-direction:column;
+  background:radial-gradient(ellipse at 30% 20%,var(--perg) 0%,var(--perg2) 100%);
+  border:2px solid color-mix(in srgb,var(--acc) 55%,#000);border-radius:9px;
+  box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--perg) 70%,transparent),inset 0 0 18px rgba(120,70,20,.28);padding:7px 11px 8px}
+.box h3{margin:0 0 3px;display:flex;align-items:center;gap:7px;font:800 19px/1.1 "Alegreya",serif;color:#24160c}
+.box h3 svg,.ic{width:20px;height:20px;flex:none;fill:#24160c}
+.fit{flex:1;min-height:0;overflow:hidden;font-size:16px;line-height:1.25}
+.ul{margin:0;padding:0;list-style:none}
+.ul li{position:relative;padding-left:13px;border-bottom:1px solid rgba(90,60,30,.22)}
+.ul.two{columns:2;column-gap:16px}
+.ul li{break-inside:avoid}
+.ul li::before{content:"";position:absolute;left:1px;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--acc)}
+.empty{color:rgba(60,40,20,.35);font-style:italic}
+
+/* retrato */
+.portrait{width:27%;padding:6px;flex:none}
+.portrait .ph{flex:1;border-radius:6px;overflow:hidden;background:rgba(90,60,30,.12);display:flex;align-items:center;justify-content:center}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.portrait .ph span{font:italic 15px "Crimson Pro";color:rgba(60,40,20,.35)}
+
+/* identidad */
+.ident{flex:56 1 0;display:grid;grid-template-columns:1.55fr 1fr;gap:1px 18px;padding:8px 14px;align-content:center}
+.ident div{display:flex;gap:6px;align-items:baseline;border-bottom:1px solid rgba(90,60,30,.35);min-width:0;padding:1px 0}
+.ident em{font-style:normal;font-size:14px;color:#5a4128;flex:none}
+.ident b{font-weight:600;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ident .big b{font:800 21px "Alegreya",serif}
+
+/* características */
+.abils{flex:44 1 0;display:flex;gap:6px}
+.ab{flex:1;background:var(--ink);border:2px solid color-mix(in srgb,var(--acc) 70%,#000);border-radius:8px;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 4px 6px;box-shadow:inset 0 0 0 2px rgba(255,220,160,.12)}
+.ab b{font:800 19px "Alegreya",serif;color:var(--perg)}
+.ab .sc{background:var(--perg);border-radius:50%/45%;width:70%;flex:1;max-height:48px;display:flex;align-items:center;justify-content:center;font:800 25px "Alegreya",serif;margin:2px 0}
+.ab .md{background:var(--perg2);border-radius:6px;padding:0 10px;font:700 15px "Crimson Pro"}
+
+/* vitales */
+.vit{display:grid;grid-template-columns:1fr auto;gap:5px 8px;align-items:center;flex:none}
+.vit .lb{display:flex;align-items:center;gap:8px;font-size:15px;line-height:1.1}
+.vit .lb svg{width:26px;height:26px;fill:#24160c;flex:none}
+.val{min-width:62px;text-align:center;border:1.5px solid rgba(70,45,25,.6);border-radius:7px;padding:2px 6px;font:800 21px "Alegreya",serif;background:rgba(255,250,235,.5)}
+.val small{display:block;font:400 11px "Crimson Pro";margin-top:-2px}
+
+/* listas con punto de competencia */
+.lst{display:flex;flex-direction:column;justify-content:space-between;flex:1;min-height:0}
+.lst div{display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(90,60,30,.22);line-height:1.15}
+.lst .n{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lst .a{font-size:11px;color:#7a5c3c;width:26px}
+.lst .v{font-weight:700;width:30px;text-align:right}
+.dot{width:12px;height:12px;border-radius:50%;border:1.5px solid #3a2616;flex:none}
+.dot.on{background:#3a2616}
+.dot.ex{background:#3a2616;box-shadow:0 0 0 2px var(--perg),0 0 0 3.5px #3a2616}
+.sk{font-size:15.5px}
+.sv{font-size:15.5px}
+
+/* combate */
+table.atk-t{width:100%;border-collapse:collapse;font-size:15px}
+.atk-t th{font:600 11px "Crimson Pro";color:#6a4c2e;text-align:left;border-bottom:1px solid rgba(90,60,30,.45);padding:0 3px}
+.atk-t td{padding:2px 3px;border-bottom:1px solid rgba(90,60,30,.22);vertical-align:top}
+.atk-t td.b{font-weight:800;text-align:center}
+.atk-t .sub{display:block;font-size:12px;color:#6a4c2e;line-height:1.1}
+.otros div{display:flex;justify-content:space-between;gap:6px;border-bottom:1px solid rgba(90,60,30,.22)}
+.otros b{font-weight:800}
+.chkbox{display:inline-block;width:15px;height:15px;border:1.5px solid #3a2616;border-radius:3px;vertical-align:-2px}
+.chkbox.on{background:#3a2616}
+
+/* conjuros */
+.spells{display:grid;grid-template-columns:1fr 1.5fr auto;gap:12px}
+.spells h4{margin:0;font:700 13px "Crimson Pro";color:#5a4128;border-bottom:1px solid rgba(90,60,30,.4)}
+.slots div{white-space:nowrap;display:flex;gap:6px;align-items:center}
+.slots i{font-style:normal;font-size:13px;color:#5a4128;width:28px}
+.slot{display:inline-block;width:12px;height:12px;border:1.5px solid #3a2616;border-radius:50%;margin-right:2px}
+.spell-head{font-size:13px;color:#5a4128;margin:-2px 0 3px}
+.spell-head b{color:#24160c}
+.notas{white-space:pre-wrap}
+.notes-box{margin-right:calc((var(--R) - var(--nx))*10px - 8px)}
+
+/* ---------- impresión ---------- */
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff}
+  .bar,.form,.tabs{display:none!important}
+  .wrap{display:block;padding:0;margin:0;max-width:none}
+  .view{display:block!important}
+  .stage{width:210mm!important;height:297mm!important;max-width:none;margin:0;overflow:hidden}
+  .sheet{transform:scale(.7937)!important}
+}
+@media (max-width:860px){.bar{position:static}}
+.abil-in input{-moz-appearance:textfield;appearance:textfield}
+.abil-in input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
