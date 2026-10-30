@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="hoja.css">
+<link rel="stylesheet" href="hoja.css?v=2">
 </head>
 <body data-tab="editar">
 <header class="bar">
@@ -22,14 +22,19 @@
   </div>
   <select class="btn" id="pregen" aria-label="Cargar personaje">
     <option value="">Personaje…</option>
-    <option value="kael">Kael Vesper · Pícaro</option>
-    <option value="seraphine">Seraphine Dathen · Clériga</option>
-    <option value="aldric">Aldric Morn · Mago</option>
-    <option value="thorne">Thorne Althar · Paladín</option>
+    <option value="soldado">Bárbaro · Soldado</option>
+    <option value="charlatan">Pícaro · Charlatán</option>
+    <option value="marinero">Druida · Marinero</option>
+    <option value="escriba">Clérigo · Escriba</option>
+    <option value="criminal">Mago · Criminal</option>
+    <option value="guardia">Guerrero · Guardia</option>
     <option value="nueva">Hoja en blanco</option>
   </select>
   <button class="btn" id="btnLoad">Abrir</button>
   <button class="btn" id="btnSave">Guardar</button>
+  <select class="btn" id="printWhat" aria-label="Qué imprimir">
+    <option value="ambas">Frente y reverso</option><option value="frente">Solo frente</option><option value="reverso">Solo reverso</option>
+  </select>
   <button class="btn pri" id="btnPrint">Imprimir / PDF</button>
   <div class="tabs">
     <button class="btn" data-tab="editar" aria-pressed="true">Editar</button>
@@ -38,11 +43,13 @@
 </header>
 <main class="wrap">
   <section class="form" id="form"></section>
-  <section class="view"><div class="stage" id="stage"><div class="sheet" id="sheet"></div></div></section>
+  <section class="view">
+    <div class="stage" id="stage1"><div class="sheet" id="sheet1"></div></div>
+    <div class="stage" id="stage2"><div class="sheet" id="sheet2"></div></div>
+  </section>
 </main>
 <input type="file" id="jsonFile" accept=".json,application/json" hidden>
-<input type="file" id="retFile" accept="image/*" hidden>
-<script src="datos.js"></script>
-<script src="hoja.js"></script>
+<script src="datos.js?v=2"></script>
+<script src="hoja.js?v=2"></script>
 </body>
 </html>
