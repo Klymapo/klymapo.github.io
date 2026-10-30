@@ -256,12 +256,6 @@ const PREGENS = {
     "bono": "+5",
     "dano": "1d6+3",
     "notas": "80/320"
-   },
-   {
-    "n": "Hacha de Mano",
-    "bono": "+5",
-    "dano": "1d6+3",
-    "notas": "20/60, Molestar"
    }
   ],
   "rasgosA": "Ataque Furtivo:\nUna vez por turno, añade 1d6 al daño que provoques con un ataque de cualquiera de tus armas. Puedes añadir este daño solo si el ataque tiene ventaja o si un compañero consciente está a 5 ft del objetivo.\n\nJerga de Ladrones:\nAprendes Jerga de Ladrones y dos idiomas más\n\nPericia:\nDuplica el bonificador por competencia en Sigilo y Juego de Manos",
@@ -404,13 +398,13 @@ const PREGENS = {
     "n": "Arma Improvisada",
     "bono": "+4",
     "dano": "1d4+2",
-    "notas": "Hender"
+    "notas": ""
    },
    {
     "n": "Hoz",
     "bono": "+4",
     "dano": "1d4+2",
-    "notas": "20/60, Molestar"
+    "notas": ""
    },
    {
     "n": "Bastón",
@@ -647,25 +641,19 @@ const PREGENS = {
     "n": "Maza",
     "bono": "+4",
     "dano": "1d6+2",
-    "notas": "20/60"
+    "notas": ""
    },
    {
     "n": "Espada Larga",
     "bono": "+4",
     "dano": "1d8+2",
-    "notas": "80/320"
+    "notas": ""
    },
    {
     "n": "Llama Sagrada",
     "bono": "DC 13",
     "dano": "1d8 Radiante",
     "notas": "60 ft, Salvación Dex"
-   },
-   {
-    "n": "Hacha de Mano",
-    "bono": "+5",
-    "dano": "1d6+3",
-    "notas": "20/60, Molestar"
    }
   ],
   "rasgosA": "Orden Divina:\nComo Protector, ganas competencia con armas marciales y entrenamiento con armaduras pesadas\n\nLanzamiento de Conjuros:\nRecuperas tus espacios de conjuro después de un descanso largo\n\nCanalizar Divinidad:\nTienes dos usos de canalizar divinidad. Recuperas un uso con descanso corto y dos con descanso largo. Puedes usar 1 uso para activar una de las siguientes habilidades de la columna de la derecha",
@@ -883,19 +871,13 @@ const PREGENS = {
     "n": "Bastón",
     "bono": "+1",
     "dano": "1d6/1d8-1",
-    "notas": "80/320"
+    "notas": ""
    },
    {
     "n": "Rayo de Escarcha",
     "bono": "+5",
     "dano": "1d8 Frío",
     "notas": "60 ft, ralentiza 10 ft"
-   },
-   {
-    "n": "Hacha de Mano",
-    "bono": "+5",
-    "dano": "1d6+3",
-    "notas": "20/60, Molestar"
    }
   ],
   "rasgosA": "Libro de Magia:\nConoces 8 conjuros, después de un descanso largo puedes preparar un máximo de 5 conjuros\n\nAdepto en Rituales:\nPuedes lanzar de forma Ritual cualquier conjuro ritual de tu libro aunque no lo tengas preparado\n\nAcadémico:\nDuplica tu bonificador por competencia en la habilidad de Arcana",
@@ -1046,7 +1028,7 @@ const PREGENS = {
    "mod_car": "+0",
    "sv_fue": "-1",
    "sv_des": "2",
-   "sv_con": "4",
+   "sv_con": "",
    "sv_int": "5",
    "sv_sab": "4",
    "sv_car": "0",
