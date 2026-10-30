@@ -33,7 +33,8 @@ const SLOTS_FULL = [[2],[3],[4,2],[4,3],[4,3,2],[4,3,3],[4,3,3,1],[4,3,3,2],[4,3
 const SLOTS_HALF = [[2],[2],[3],[3],[4,2],[4,2],[4,3],[4,3],[4,3,2],[4,3,2],[4,3,3],[4,3,3],
   [4,3,3,1],[4,3,3,1],[4,3,3,2],[4,3,3,2],[4,3,3,3,1],[4,3,3,3,1],[4,3,3,3,2],[4,3,3,3,2]];
 
-// Pregenerados del PDF "Equipo Nivel 2 One Shots" de DM Lanz MKD, copiados tal cual (valores a mano).
+// Pregenerados del PDF "Equipo Nivel 2 One Shots" de DM Lanz MKD, copiados tal cual (valores a mano),
+// con 4 correcciones pedidas por Admin el 2026-10-30 (iniciativa del Druida, Investigación del Clérigo, salvación de CON del Mago, recarga de Acción Súbita del Guerrero).
 const PREGENS = {
  "soldado": {
   "plantilla": "rojo",
@@ -535,7 +536,7 @@ const PREGENS = {
   },
   "m": {
    "pb": "+2",
-   "ini": "+2",
+   "ini": "+1",
    "pasiva": "",
    "pgMax": "24",
    "dgMax": "2d8",
@@ -780,7 +781,7 @@ const PREGENS = {
    "sv_car": "4",
    "sk_arcanos": "2",
    "sk_historia": "2",
-   "sk_investigacion": "0",
+   "sk_investigacion": "2",
    "sk_naturaleza": "0",
    "sk_religion": "2",
    "sk_tratoanimales": "3",
@@ -1028,7 +1029,7 @@ const PREGENS = {
    "mod_car": "+0",
    "sv_fue": "-1",
    "sv_des": "2",
-   "sv_con": "",
+   "sv_con": "1",
    "sv_int": "5",
    "sv_sab": "4",
    "sv_car": "0",
@@ -1152,7 +1153,7 @@ const PREGENS = {
     "notas": "30/120"
    }
   ],
-  "rasgosA": "Estilo de Combate:\nMientras lleves puesta una armadura, tienes +1 a tu clase de armadura\n\nTomar Aliento:\nTienes dos usos de esta habilidad, recuperas un uso con descanso corto y dos con descanso largo.\nComo acción adicional, recupera 1d10+2 puntos de golpe\n\nAcción Súbita:\nEn tu turno, puedes realizar una acción más, excepto acción mágica",
+  "rasgosA": "Estilo de Combate:\nMientras lleves puesta una armadura, tienes +1 a tu clase de armadura\n\nTomar Aliento:\nTienes dos usos de esta habilidad, recuperas un uso con descanso corto y dos con descanso largo.\nComo acción adicional, recupera 1d10+2 puntos de golpe\n\nAcción Súbita:\nEn tu turno, puedes realizar una acción más, excepto acción mágica\nEsta habilidad se recarga después de un descanso corto o largo",
   "rasgosB": "Mente Táctica:\nCuando falles una prueba de característica, puedes gastar un uso de Tomar Aliento y sumar 1d10 a la prueba. Si no superas la prueba no se gasta el uso de Tomar Aliento\n- Molestar: si golpeas a una criatura con esta arma y le haces daño, tu siguiente ataque contra el tiene ventaja\n-Ralentizar: si golpeas a una criatura y le causas daño, pierde 10 ft de movimiento hasta el inicio de tu siguiente turno. Este efecto no se acumula",
   "especieR": "Diestro:\nGanas competencia en una habilidad (ya incluido)\n\nIngenioso:\nObtienes Inspiración Heroica tras finalizar un descanso largo\n\nVersátil:\nObtienes un dote de origen, se recomienda Duro.",
   "dotes": "Duro:\nTus puntos de golpe máximos aumentan en una cantidad igual al doble del nivel de tu personaje (ya incluido)\n\nAlerta:\nAñade tu bonificador por competencia a tu Iniciativa, además, después de lazar iniciativa, la puedes intercambiar con un compañero.",
